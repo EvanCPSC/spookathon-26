@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pumpkin Eater</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link rel="icon" href="pumpkin2.png" type="image/png">
+    </head>
+    <body>
+        <br>
+        <h3>Cheater Cheater</h3>
+        <h1>Pumpkin Eater</h1>
+        <br>
+        <img width="256px" src="pumpkin1.png" alt="Pumpkin" id="pumpkinImage">
+        <br><br>
+        <button onclick="changePumpkinImage()">Eat the Pumpkin</button>
+        <br><br>
+        <h3>Pumpkins Eaten:</h3>
+        <p id="pumpkinsEaten">0</p>
+        <br><br>
+    </body>
+    <style>
+        body {
+            background-color: #cbb9a2;
+            font-family: "Permanent Marker", cursive;
+            text-align: center;
+            font-size: large;
+        }
+        h1 {
+            margin: auto;
+            color: blueviolet;
+        }
+        h3 {
+            margin: auto;
+            color: gray;
+        }
+        button {
+            background-color: blueviolet;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: larger;
+            font-family: "Permanent Marker", cursive;
+        }
+    </style>
+    <script>
+        let index = 0;
+        let pumpkinsEaten = 0;
+        const pumpkinsEatenElement = document.getElementById("pumpkinsEaten");
+        const button = document.querySelector("button");
+        const pumpkinImage = document.getElementById("pumpkinImage");
+        const pumpkinImages = [
+            "pumpkin1.png",
+            "pumpkin2.png",
+            "pumpkin3.png",
+            "pumpkin4.png",
+            "pumpkin5.png"
+        ];
+        function changePumpkinImage() {
+            index = (index + 1) % pumpkinImages.length;
+            pumpkinImage.src = pumpkinImages[index];
+            if (index === pumpkinImages.length - 1) {
+                button.textContent = "Get new pumpkin";
+                pumpkinsEaten++;
+                pumpkinsEatenElement.textContent = pumpkinsEaten;
+            } else {
+                button.textContent = "Eat the Pumpkin";
+            }
+        }
+    </script>
+</html>
